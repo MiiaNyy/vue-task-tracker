@@ -3,8 +3,7 @@
     <p>
       <em>Copyright &copy; 2022</em>
     </p>
-
-    <a href="/about">About</a>
+    <router-link to="/about">About</router-link>
   </footer>
 </template>
 

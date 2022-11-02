@@ -1,8 +1,8 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <Button @click="btnOnClick" :text="showAddTask ? 'Close' : 'Add Task'"
-            :color="showAddTask ? '#da2539' : '#1fc07b'" />
+    <Button v-show="homePage" @click="btnOnClick" :text="showAddTask ? 'Close' : 'Add Task'"
+            :color="showAddTask ? '#da2539' : '#1fc07b'"/>
   </header>
 
 </template>
@@ -14,14 +14,19 @@ export default {
   name : "HeaderMain",
   props : {
     title : String,
-    showAddTask: Boolean,
+    showAddTask : Boolean,
   },
   components : {
     Button,
   },
-  methods: {
-    btnOnClick() {
-      this.$emit('btn-click')
+  computed : {
+    homePage () {
+      return this.$route.path === '/';
+    }
+  },
+  methods : {
+    btnOnClick () {
+      this.$emit( 'btn-click' )
     },
   },
 }
